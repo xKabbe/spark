@@ -1,0 +1,45 @@
+name: Test Spark
+run-name: ${{ github.actor }} is testing 🧪 Spark 💻
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+env:
+  SPARK_APP_SRC_PATH: app
+  SPARK_APP_TEST_PATH: tests/test_app
+  SPARK_APP_COVERAGE_PATH: coverage/app
+
+jobs:
+  spark-tests:
+    name: Spark Tests 🧪
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Set Up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run Spark Tests 🏃
+        run: |
+          pytest ${{ env.SPARK_TEST_PATH }} \
+            --cov=${{ env.SPARK_SRC_PATH }} \
+            --cov-report=html:${{ env.SPARK_COVERAGE_PATH }} \
+            --template=html1/index.html \
+            --report=${{ env.SPARK_COVERAGE_PATH }}/spark-coverage-report.html \
+            --headless
+      - name: Upload Spark Coverage Report
+        uses: actions/upload-pages-artifact@v1
+        with:
+          name: spark-coverage-report
+          path: ${{ env.SPARK_COVERAGE_PATH }}
