@@ -32,14 +32,14 @@ jobs:
           pip install -r requirements.txt
       - name: Run Spark Tests 🏃
         run: |
-          pytest ${{ env.SPARK_TEST_PATH }} \
-            --cov=${{ env.SPARK_SRC_PATH }} \
-            --cov-report=html:${{ env.SPARK_COVERAGE_PATH }} \
+          pytest ${{ env.SPARK_APP_TEST_PATH }} \
+            --cov=${{ env.SPARK_APP_SRC_PATH }} \
+            --cov-report=html:${{ env.SPARK_APP_COVERAGE_PATH }} \
             --template=html1/index.html \
-            --report=${{ env.SPARK_COVERAGE_PATH }}/spark-coverage-report.html \
+            --report=${{ env.SPARK_APP_COVERAGE_PATH }}/spark-coverage-report.html \
             --headless
       - name: Upload Spark Coverage Report
         uses: actions/upload-pages-artifact@v1
         with:
           name: spark-coverage-report
-          path: ${{ env.SPARK_COVERAGE_PATH }}
+          path: ${{ env.SPARK_APP_COVERAGE_PATH }}
