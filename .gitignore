@@ -157,3 +157,5 @@ cython_debug/
 .idea/
 .vscode/
 
+# Ignore output files e.g. PDF-Reports
+/out/

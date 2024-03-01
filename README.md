@@ -13,28 +13,27 @@ Before you begin, ensure you have the following prerequisites installed:
 
 1. Clone the repository to your local machine:
 
-    ```shell
-    git clone https://github.com/xKabbe/spark.git
-    ```
+   ```shell
+   git clone https://github.com/xKabbe/spark.git
+   ```
 
 2. Set up and activate a virtual environment:
 
-    ```shell
-    python -m venv path/to/venv
-    source path/to/venv/bin/activate
-    ```
+   ```shell
+   # On linux
+   python -m venv path/to/venv
+   source path/to/venv/bin/activate
 
-3. Install the production dependencies:
+   # On windows
+   python -m venv path/to/venv
+   source path/to/venv/Scripts/activate
+   ```
 
-    ```shell
-    pip install -r requirements.txt
-    ```
+3. Install the required dependencies:
 
-4. Install the development dependencies (for testing, code formatting, etc.):
-
-    ```shell
-    pip install -r requirements-dev.txt
-    ```
+   ```shell
+   pip install -r requirements.txt
+   ```
 
 ## Usage
 
@@ -45,7 +44,7 @@ Coming soon...
 [pytest](https://docs.pytest.org/en/7.4.x/) makes it easy to write small, readable tests, and can scale to support complex functional testing for applications and libraries.
 
 | Command                          | Description                                                              |
-|----------------------------------|--------------------------------------------------------------------------|
+| -------------------------------- | ------------------------------------------------------------------------ |
 | `pytest`                         | Run all tests in the current directory and its subdirectories.           |
 | `pytest test_module.py`          | Run tests in a specific module.                                          |
 | `pytest test_module.py::test_fn` | Run a specific test function in a module.                                |
@@ -60,14 +59,13 @@ Coming soon...
 | `pytest --markers`               | Show available markers.                                                  |
 | `pytest -h`                      | Display help message and exit.                                           |
 
-
 ### MkDocs Documentation
 
 [MkDocs](https://www.mkdocs.org) is a fast, simple, and widely used tool for creating documentation from Markdown files.
 To view the project documentation locally and start a live-reloading server, follow these commands:
 
 | Command        | Description                                                                                                                                                                                                                                   |
-|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `mkdocs serve` | This command will start a local development server, and you can access the documentation at http://127.0.0.1:8000/. <br>As you make changes to the documentation files, MkDocs will automatically update the rendered content in your browser |
 | `mkdocs build` | This command will build the documentation site                                                                                                                                                                                                |
 | `mkdocs -h`    | This command will print the help message and exit                                                                                                                                                                                             |
